@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps {
-                echo 'Run tests using JUnit and Selenium.'
+                echo 'Running tests using JUnit and Selenium.'
             }
         }
         stage('Code Analysis') {
