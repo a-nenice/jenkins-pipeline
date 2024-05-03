@@ -31,5 +31,4 @@ This repository contains the Jenkins pipeline configuration for a project that d
 ### Installation
 
 1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/your-repository-name.git
+
