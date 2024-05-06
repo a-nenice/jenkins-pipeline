@@ -28,7 +28,5 @@ This repository contains the Jenkins pipeline configuration for a project that d
 - Access to a GitHub account and a basic understanding of its operations.
 - A server or environment for staging and production deployments (e.g., AWS EC2).
 
-### Installation
 
-1. **Clone the repository:**
 
