@@ -13,7 +13,7 @@ pipeline {
             post {
                 always {
                     emailext (
-                        to: 'ruthnenice@gmail.com',
+                        to: "ruthnenice@gmail.com",
                         subject: "Test Results Notification",
                         body: "The tests stage has completed. Please check the Jenkins dashboard for detailed results.",
                         attachmentsPattern: '**/target/surefire-reports/*.xml',
@@ -34,7 +34,7 @@ pipeline {
             post {
                 always {
                     emailext (
-                        to: 'ruthnenice@gmail.com',
+                        to: "ruthnenice@gmail.com",
                         subject: "Security Scan Notification",
                         body: "The security scan stage has completed. Please check the Jenkins dashboard for detailed results.",
                         attachmentsPattern: '**/zap-reports/*.html',
