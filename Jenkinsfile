@@ -17,8 +17,8 @@ pipeline {
                             to: "ruthnenice@gmail.com",
                             subject: "SUCCESS: Unit and Integration Tests",
                             body: "The Unit and Integration Tests stage completed successfully. Please check the Jenkins dashboard for details.",
-                            attachmentsPattern: 'target/surefire-reports/*.xml',
-                            mimeType: 'text/html'
+                            //attachmentsPattern: 'target/surefire-reports/*.xml',
+                            //mimeType: 'text/html'
                         )
                     }
                 }
@@ -28,8 +28,8 @@ pipeline {
                             to: "ruthnenice@gmail.com",
                             subject: "FAILURE: Unit and Integration Tests",
                             body: "The Unit and Integration Tests stage failed. Please check the Jenkins dashboard and attached logs for details.",
-                            attachmentsPattern: 'target/surefire-reports/*.xml',
-                            mimeType: 'text/html'
+                            //attachmentsPattern: 'target/surefire-reports/*.xml',
+                            //mimeType: 'text/html'
                         )
                     }
                 }
@@ -51,8 +51,8 @@ pipeline {
                             to: "ruthnenice@gmail.com",
                             subject: "SUCCESS: Security Scan",
                             body: "The Security Scan stage completed successfully. Please check the Jenkins dashboard for details.",
-                            attachmentsPattern: 'target/zap-reports/*.html',
-                            mimeType: 'text/html'
+                            //attachmentsPattern: 'target/zap-reports/*.html',
+                            //mimeType: 'text/html'
                         )
                     }
                 }
@@ -62,8 +62,8 @@ pipeline {
                             to: "ruthnenice@gmail.com",
                             subject: "FAILURE: Security Scan",
                             body: "The Security Scan stage failed. Please check the Jenkins dashboard and attached logs for details.",
-                            attachmentsPattern: 'target/zap-reports/*.html',
-                            mimeType: 'text/html'
+                            //attachmentsPattern: 'target/zap-reports/*.html',
+                            //mimeType: 'text/html'
                         )
                     }
                 }
