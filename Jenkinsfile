@@ -16,9 +16,9 @@ pipeline {
                 always {
                     emailext (
                         to: 'ruthnenice@gmail.com',
-                        subject: "${env.JOB_NAME} - ${env.BUILD_NUMBER} - Tests Stage Status",
-                        body: """<p>Tests Stage Completed: $BUILD_STATUS</p>
-                                 <p>Check console output at <a href='$BUILD_URL'>Build URL</a></p>""",
+                        subject: "JOB_NAME - BUILD_NUMBER - Tests Stage Status",
+                        body: """<p>Tests Stage Completed: BUILD_STATUS</p>
+                                 <p>Check console output at <a href='BUILD_URL'>Build URL</a></p>""",
                         attachmentsPattern: '**/target/surefire-reports/*.xml',
                         mimeType: 'text/html'
                     )
@@ -40,9 +40,9 @@ pipeline {
                 always {
                     emailext (
                         to: 'ruthnenice@gmail.com',
-                        subject: "${env.JOB_NAME} - ${env.BUILD_NUMBER} - Security Scan Stage Status",
+                        subject: "JOB_NAME - BUILD_NUMBER - Security Scan Stage Status",
                         body: """<p>Security Scan Stage Completed: $BUILD_STATUS</p>
-                                 <p>Check console output at <a href='$BUILD_URL'>Build URL</a></p>""",
+                                 <p>Check console output at <a href='BUILD_URL'>Build URL</a></p>""",
                         attachmentsPattern: '**/zap-reports/*.html',
                         mimeType: 'text/html'
                     )
