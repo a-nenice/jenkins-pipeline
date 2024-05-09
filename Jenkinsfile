@@ -63,7 +63,7 @@ pipeline {
                             subject: "FAILURE: Security Scan",
                             body: "The Security Scan stage failed. Please check the Jenkins dashboard and attached logs for details.",
                             //attachmentsPattern: 'target/zap-reports/*.html',
-                            //mimeType: 'text/html'
+                            //mimeType: 'text/html' fofo
                         )
                     }
                 }
