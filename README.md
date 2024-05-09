@@ -25,7 +25,7 @@ This repository contains the Jenkins pipeline configuration for a project that d
 ### Prerequisites
 
 - Jenkins installed with necessary plugins (e.g., Email Extension Plugin, Pipeline)
-- Access to a GitHub account and a basic understanding of its operations.
+- Access to a GitHub account.
 - A server or environment for staging and production deployments (e.g., AWS EC2).
 
 
