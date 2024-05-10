@@ -11,26 +11,37 @@ pipeline {
                 echo "Running unit tests with JUnit and integration tests with Selenium. JUnit is used for unit testing, while Selenium handles integration tests to ensure components interact correctly."
             }
             post {
+                always {
+                    archiveArtifacts artifacts: 'target/surefire-reports/*.xml', onlyIfSuccessful: true
+                }
                 success {
                     script {
-                        emailext (
-                            to: "ruthnenice@gmail.com",
-                            subject: "SUCCESS: Unit and Integration Tests",
-                            body: "The Unit and Integration Tests stage completed successfully. Please check the Jenkins dashboard for details.",
-                            //attachmentsPattern: 'target/surefire-reports/*.xml',
-                            //mimeType: 'text/html'
-                        )
+                        try {
+                            emailext(
+                                to: "ruthnenice@gmail.com",
+                                subject: "SUCCESS: Unit and Integration Tests",
+                                body: "The Unit and Integration Tests stage completed successfully. Please check the Jenkins dashboard for details.",
+                                attachmentsPattern: 'target/surefire-reports/*.xml',
+                                mimeType: 'text/html'
+                            )
+                        } catch (Exception e) {
+                            echo "Failed to send email: ${e.getMessage()}"
+                        }
                     }
                 }
                 failure {
                     script {
-                        emailext (
-                            to: "ruthnenice@gmail.com",
-                            subject: "FAILURE: Unit and Integration Tests",
-                            body: "The Unit and Integration Tests stage failed. Please check the Jenkins dashboard and attached logs for details.",
-                            //attachmentsPattern: 'target/surefire-reports/*.xml',
-                            //mimeType: 'text/html'
-                        )
+                        try {
+                            emailext(
+                                to: "ruthnenice@gmail.com",
+                                subject: "FAILURE: Unit and Integration Tests",
+                                body: "The Unit and Integration Tests stage failed. Please check the Jenkins dashboard and attached logs for details.",
+                                attachmentsPattern: 'target/surefire-reports/*.xml',
+                                mimeType: 'text/html'
+                            )
+                        } catch (Exception e) {
+                            echo "Failed to send email: ${e.getMessage()}"
+                        }
                     }
                 }
             }
@@ -43,28 +54,40 @@ pipeline {
         stage('Security Scan') {
             steps {
                 echo "Performing security scan with OWASP ZAP. OWASP ZAP is used to detect security vulnerabilities in the application."
+                // Assume this also generates reports in 'target/zap-reports/'
             }
             post {
+                always {
+                    archiveArtifacts artifacts: 'target/zap-reports/*.html', onlyIfSuccessful: true
+                }
                 success {
                     script {
-                        emailext (
-                            to: "ruthnenice@gmail.com",
-                            subject: "SUCCESS: Security Scan",
-                            body: "The Security Scan stage completed successfully. Please check the Jenkins dashboard for details.",
-                            //attachmentsPattern: 'target/zap-reports/*.html',
-                            //mimeType: 'text/html'
-                        )
+                        try {
+                            emailext(
+                                to: "ruthnenice@gmail.com",
+                                subject: "SUCCESS: Security Scan",
+                                body: "The Security Scan stage completed successfully. Please check the Jenkins dashboard for details.",
+                                attachmentsPattern: 'target/zap-reports/*.html',
+                                mimeType: 'text/html'
+                            )
+                        } catch (Exception e) {
+                            echo "Failed to send email: ${e.getMessage()}"
+                        }
                     }
                 }
                 failure {
                     script {
-                        emailext (
-                            to: "ruthnenice@gmail.com",
-                            subject: "FAILURE: Security Scan",
-                            body: "The Security Scan stage failed. Please check the Jenkins dashboard and attached logs for details.",
-                            //attachmentsPattern: 'target/zap-reports/*.html',
-                            //mimeType: 'text/html' fofo
-                        )
+                        try {
+                            emailext(
+                                to: "ruthnenice@gmail.com",
+                                subject: "FAILURE: Security Scan",
+                                body: "The Security Scan stage failed. Please check the Jenkins dashboard and attached logs for details.",
+                                attachmentsPattern: 'target/zap-reports/*.html',
+                                mimeType: 'text/html'
+                            )
+                        } catch (Exception e) {
+                            echo "Failed to send email: ${e.getMessage()}"
+                        }
                     }
                 }
             }
