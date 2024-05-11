@@ -16,7 +16,7 @@ pipeline {
                         emailext (
                             to: "ruthnenice@gmail.com",
                             subject: "SUCCESS: Unit and Integration Tests",
-                            body: "The Unit and Integration Tests stage completed successfully. Please check the Jenkins dashboard for details.",
+                            body: "The Unit and Integration Tests stage completed successfully. Please check the attached logs for details.",
                             attachLog: true
                         )
                     }
@@ -48,7 +48,7 @@ pipeline {
                         emailext (
                             to: "ruthnenice@gmail.com",
                             subject: "SUCCESS: Security Scan",
-                            body: "The Security Scan stage completed successfully. Please check the Jenkins dashboard for details.",
+                            body: "The Security Scan stage completed successfully. Please check the attached logs for details.",
                             attachLog: true
                         )
                     }
