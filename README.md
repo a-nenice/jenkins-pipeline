@@ -20,7 +20,6 @@ This repository contains the Jenkins pipeline configuration for a project that d
 6. **Integration Tests on Staging**: Executes additional integration tests in a staging environment.
 7. **Deploy to Production**: Deploys the application to the production environment.
 
-## Getting
 
 ### Prerequisites
 
